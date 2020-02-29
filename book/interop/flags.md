@@ -89,9 +89,9 @@ The other supported types actually come from before we had figured out a way to 
   - `{ x: 360, y: "why?" }` => error
 
 - `init : (String, Int) -> ...`
-  - `['tom',42]` => `("Tom", 42)`
-  - `["sue",33]` => `("Sue", 33)`
-  - `["bob","4"]` => error
-  - `['joe',9,9]` => error
+  - `['tom', 42]` => `("tom", 42)`
+  - `["sue", 33]` => `("sue", 33)`
+  - `["bob", "4"]` => error
+  - `['joe', 9, 9]` => error
 
 Note that when one of the conversions goes wrong, **you get an error on the JS side!** We are taking the “fail fast” policy. Rather than the error making its way through Elm code, it is reported as soon as possible. This is another reason why people like to use `Json.Decode.Value` for flags. Instead of getting an error in JS, the weird value goes through a decoder, guaranteeing that you implement some sort of fallback behavior.
